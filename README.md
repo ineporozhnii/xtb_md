@@ -1,2 +1,2 @@
-# xtb_md
+# xTB MD
 Molecular Dynamics with xTB 
