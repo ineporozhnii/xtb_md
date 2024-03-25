@@ -29,7 +29,7 @@ def xtb_md(method: str = None,
 
     structure.calc = calc
 
-    dyn = Langevin(structure, step * units.fs, temperature_K = T * units.kB, friction=0.01, logfile=f'results/{output_dir}{output_name}_{method}/{output_name}.log')
+    dyn = Langevin(structure, step * units.fs, temperature_K = T * units.kB, friction=0.01, logfile=f'results/{output_dir}{output_name}_{method}_{int(T)}K/{output_name}.log')
 
     traj = Trajectory(f'results/{output_dir}{output_name}_{method}_{int(T)}K/{output_name}.traj', 'w', structure)
     dyn.attach(traj.write, interval=1)
