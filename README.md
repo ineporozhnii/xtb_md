@@ -1,6 +1,12 @@
 # xTB MD
 Molecular Dynamics with xTB 
 
+## Optimization
+<img src="https://github.com/ineporozhnii/xtb_md/blob/main/anim/optim.gif" height="600" />
+
+## Molecular Dynamics
+<img src="https://github.com/ineporozhnii/xtb_md/blob/main/anim/md.gif" height="600" />
+
 # Running simulations:
 ## Parameters:  
 - --method (choose between gfn1 and gfn2 xTB)
