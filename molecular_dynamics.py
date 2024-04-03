@@ -2,7 +2,6 @@ import os
 import ase
 import time
 from tblite.ase import TBLite
-from ase.optimize import BFGS
 from ase.io.trajectory import Trajectory
 from utils import traj_to_extxyz
 from ase.md.langevin import Langevin
