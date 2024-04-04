@@ -5,6 +5,7 @@ from tblite.ase import TBLite
 from ase.io.trajectory import Trajectory
 from utils import traj_to_extxyz
 from ase.md.langevin import Langevin
+from ase.md.velocitydistribution import MaxwellBoltzmannDistribution
 from ase import units
 
 def xtb_md(method: str = None, 
@@ -28,7 +29,9 @@ def xtb_md(method: str = None,
 
     structure.calc = calc
 
-    dyn = Langevin(structure, step * units.fs, temperature_K = T * units.kB, friction=0.01, logfile=f'results/{output_dir}{output_name}_{method}_{int(T)}K/{output_name}.log')
+    MaxwellBoltzmannDistribution(structure, temperature_K=T)
+
+    dyn = Langevin(structure, step * units.fs, temperature_K=T, friction=0.01, logfile=f'results/{output_dir}{output_name}_{method}_{int(T)}K/{output_name}.log')
 
     traj = Trajectory(f'results/{output_dir}{output_name}_{method}_{int(T)}K/{output_name}.traj', 'w', structure)
     dyn.attach(traj.write, interval=1)
